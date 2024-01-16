@@ -1,4 +1,7 @@
 # 패스트캠퍼스 강의 예제
+- [10개 프로젝트로 한 번에 끝내는 MLOps 파이프라인 구현](https://fastcampus.co.kr/data_online_mlopspj)
+  - ```05. 금융 이상탐지 수행을 위한 MLOps 파이프라인 구축```
+  - ```06. 금융 이상탐지 파이프라인의 효과적인 모니터링과 성능개선을 위한 환경 구성```
 
 ## Download sample datasets
 1. 다운로드: [Fraudulent Transactions Data](https://www.kaggle.com/datasets/chitwanmanchanda/fraudulent-transactions-data) (Kaggle)
