@@ -25,6 +25,7 @@
 127.0.0.1	airflow-worker.mlops.io
 127.0.0.1	mlflow.mlops.io
 127.0.0.1	grafana.mlops.io
+127.0.0.1	prometheus.mlops.io
 127.0.0.1	minio.mlops.io
 127.0.0.1	mlservice.mlops.io
 ```
