@@ -11,6 +11,10 @@ x-airflow-common:
     dockerfile: airflow/Dockerfile
   environment:
     &airflow-common-env
+    AIRFLOW__METRICS__STATSD_ON: 'true'
+    AIRFLOW__METRICS__STATSD_HOST: airflow-statsd-exporter
+    AIRFLOW__METRICS__STATSD_PORT: 8125
+    AIRFLOW__METRICS__STATSD_PREFIX: airflow
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://mlops:mlops@postgres/mlops
     # For backward compatibility, with Airflow <2.3
@@ -28,7 +32,10 @@ x-airflow-common:
     AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
     # WARNING: Use _PIP_ADDITIONAL_REQUIREMENTS option ONLY for a quick checks
     # for other purpose (development, test and especially production usage) build/extend Airflow image.
-    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-bentoml>=1.0.0a pandas pydantic xgboost tensorflow keras scikit-learn aequitas-lite}
+    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-bentoml>=1.0.0a pandas pydantic xgboost tensorflow keras scikit-learn aequitas-lite mlflow}
+    AWS_ACCESS_KEY_ID: mlops
+    AWS_SECRET_ACCESS_KEY: mlopsmlops
+    MLFLOW_S3_ENDPOINT_URL: http://minio:9000
   volumes:
     - ./docker-data/airflow/dags:/opt/airflow/dags
     - ./docker-data/airflow/logs:/opt/airflow/logs
@@ -101,6 +108,7 @@ services:
       POSTGRES_DB: 'mlops'
     volumes:
       - ./docker-data/postgres/data:/var/lib/postgresql/data
+      - ./init-mlflow.sql:/docker-entrypoint-initdb.d/1-init-mlflow.sql
     healthcheck:
       test: [ "CMD", "pg_isready", "-U", "mlops" ]
       interval: 10s
@@ -278,7 +286,94 @@ services:
    ports:
      - "6000:5000"
 
-  #model-serving:
-  #  image: localhost:6000/model_serving:latest
-  #  ports:
-  #    - "3333:3000"
+  airflow-statsd-exporter:
+    image: prom/statsd-exporter
+    command: "--statsd.listen-udp=:8125 --web.listen-address=:9102 --statsd.mapping-config=/config/statsd.conf"
+    ports:
+      - 9102:9102
+      - 8125:8125/udp
+    volumes:
+      - './docker-data/airflow-statsd-exporter/config:/config'
+
+  prometheus:
+    image: 'prom/prometheus:latest'
+    restart: always
+    command:
+      - '--web.enable-lifecycle'
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    healthcheck:
+      test: [ "CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:9090/-/healthy" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 5s
+    ports:
+      - '9090:9090'
+    volumes:
+      - './docker-data/prometheus/config:/etc/prometheus'
+      - './docker-data/prometheus/data:/prometheus'
+
+  grafana:
+    image: grafana/grafana
+    healthcheck:
+      test: [ "CMD", "curl", "--fail", "http://localhost:3000/api/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    ports:
+      - 3000:3000
+    volumes:
+      - './docker-data/grafana/data:/var/lib/grafana'
+    restart: always
+
+  minio:
+    restart: always
+    image: minio/minio
+    ports:
+      - 9000:9000
+      - 9001:9001
+    environment:
+      MINIO_ROOT_USER: mlops
+      MINIO_ROOT_PASSWORD: mlopsmlops
+    command: server /data --console-address ':9001'
+    healthcheck:
+      test: timeout 5s bash -c ':> /dev/tcp/127.0.0.1/9000' || exit 1
+      interval: 5s
+      retries: 1
+      start_period: 5s
+      timeout: 5s
+    volumes:
+      - ./docker-data/minio/data:/data
+
+  mlflow-server:
+    restart: always
+    build:
+      context: .
+      dockerfile: mlflow/Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    ports:
+      - 5001:5000
+    environment:
+      AWS_ACCESS_KEY_ID: mlops
+      AWS_SECRET_ACCESS_KEY: mlopsmlops
+      MLFLOW_S3_ENDPOINT_URL: http://minio:9000
+    command:
+      - /bin/sh
+      - -c
+      - |
+        mc config host add mlflowminio http://minio:9000 mlops mlopsmlops &&
+        mc mb --ignore-existing mlflowminio/mlflow
+        mlflow server \
+        --backend-store-uri postgresql://mlops:mlops@postgres/mlflow \
+        --default-artifact-root s3://mlflow/ \
+        --host 0.0.0.0
+
+#  model-serving:
+#    image: localhost:6000/model_serving:latest
+#    ports:
+#      - "3333:3000"

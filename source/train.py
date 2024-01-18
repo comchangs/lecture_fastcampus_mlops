@@ -8,11 +8,17 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 
 from airflow.models import Variable
 import bentoml
+import mlflow
+
+mlflow.set_tracking_uri(uri="http://mlflow-server:5000")
+mlflow.set_experiment("fraud_detection")
 
 def build_model(**kwargs):
+    mlflow.autolog()
+    with mlflow.start_run():
         if(Variable.get("isProd") == "true"):
             engine = create_engine("postgresql+psycopg2://" + Variable.get("db_username") + ":" + Variable.get("db_password") + "@" + Variable.get("db_host") + ":" + Variable.get("db_port") + "/" + Variable.get("db_name"))
-            data = pd.read_sql("select * from public.sample_data", engine)
+            data = pd.read_sql("select * from public.sample_data limit 6362120", engine)
         else:
             data = pd.read_csv('/opt/airflow/dags/sample_data/Fraud.csv')
 
@@ -107,6 +113,9 @@ def build_model(**kwargs):
 
         train_score = model.score(X_train_scaled,y_train) * 100
         test_score = model.score(X_test_scaled,y_test) * 100
+
+        if(Variable.get("isProd") == "true"):
+            mlflow.sklearn.log_model(model, "fraud_detection")
 
         bento_model = bentoml.sklearn.save_model("fraud_detection",
                                         model,
