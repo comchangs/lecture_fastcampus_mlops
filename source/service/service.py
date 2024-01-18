@@ -22,5 +22,5 @@ class Features(BaseModel):
 
 @svc.api(input=JSON(pydantic_model=Features), output=NumpyNdarray())
 async def predict(input_data: Features):
-    input_df = pd.DataFrame([input_data.to_dict()])
+    input_df = pd.DataFrame([input_data.dict()])
     return await runner.predict.async_run(input_df)
