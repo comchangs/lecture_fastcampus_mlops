@@ -10,15 +10,16 @@ from airflow.models import Variable
 import bentoml
 import mlflow
 
-mlflow.set_tracking_uri(uri="http://mlflow-server:5000")
-mlflow.set_experiment("fraud_detection")
+if(Variable.get("isProd") == "true"):
+    mlflow.set_tracking_uri(uri="http://mlflow-server:5000")
+    mlflow.set_experiment("fraud_detection")
 
 def build_model(**kwargs):
-    mlflow.autolog()
     with mlflow.start_run():
         if(Variable.get("isProd") == "true"):
+            mlflow.autolog()
             engine = create_engine("postgresql+psycopg2://" + Variable.get("db_username") + ":" + Variable.get("db_password") + "@" + Variable.get("db_host") + ":" + Variable.get("db_port") + "/" + Variable.get("db_name"))
-            data = pd.read_sql("select * from public.sample_data limit 6362120", engine)
+            data = pd.read_sql("select * from public.sample_data", engine)
         else:
             data = pd.read_csv('/opt/airflow/dags/sample_data/Fraud.csv')
 
