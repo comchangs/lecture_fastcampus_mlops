@@ -18,14 +18,14 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 5,
+  "id": 11,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "fieldConfig": {
         "defaults": {
@@ -104,18 +104,14 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "histogram_quantile(0.75, rate(bentoml_runner_adaptive_batch_size_bucket[1m]))",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.75, rate(bentoml_runner_adaptive_batch_size_bucket{service_name=\"fraud_detection_service\"}[1m]))",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
-          "refId": "A",
-          "useBackend": false
+          "refId": "A"
         }
       ],
       "title": "Adaptive Batch Size",
@@ -124,7 +120,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "fieldConfig": {
         "defaults": {
@@ -203,18 +199,14 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "histogram_quantile(0.99, rate(bentoml_api_server_request_duration_seconds_bucket{endpoint=\"/predict\"}[1m]))",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.99, rate(bentoml_api_server_request_duration_seconds_bucket{service_name=\"fraud_detection_service\", endpoint=\"/predict\"}[1m]))",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
-          "refId": "A",
-          "useBackend": false
+          "refId": "A"
         }
       ],
       "title": "Request Duration",
@@ -223,7 +215,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "fieldConfig": {
         "defaults": {
@@ -302,18 +294,14 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "rate(bentoml_api_server_request_total{endpoint=\"/predict\"}[1m])",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
+          "editorMode": "code",
+          "expr": "rate(bentoml_api_server_request_total{service_name=\"fraud_detection_service\", endpoint=\"/predict\"}[1m])",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
-          "refId": "A",
-          "useBackend": false
+          "refId": "A"
         }
       ],
       "title": "Request Total",
@@ -332,8 +320,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Bentoml Serving dashboard",
-  "uid": "e7f91f0c-3ab2-4754-a441-1b29871349ad",
-  "version": 3,
+  "title": "Bentoml Service dashboard",
+  "uid": "eaef9329-5e7f-450f-bb5a-b11809ed3a89",
+  "version": 1,
   "weekStart": ""
 }

@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 2,
+  "id": 10,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -26,7 +26,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "gridPos": {
         "h": 1,
@@ -40,7 +40,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
           "refId": "A"
         }
@@ -51,7 +51,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Seconds taken for a DagRun to reach success state",
       "fieldConfig": {
@@ -133,7 +133,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
           "expr": "af_agg_dagrun_duration_success{dag_id=\"$dag_id\"} * 1000",
           "format": "time_series",
@@ -148,7 +148,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Seconds taken for a DagRun to reach failed state",
       "fieldConfig": {
@@ -231,7 +231,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
           "expr": "af_agg_dagrun_duration_failed{dag_id=\"$dag_id\"} * 1000",
           "interval": "",
@@ -245,7 +245,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Sum of seconds taken to finish a tasks aggregated by DAG",
       "fieldConfig": {
@@ -328,7 +328,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
           "expr": "sum by (dag_id, quantile) (af_agg_dag_task_duration{dag_id=\"$dag_id\"}) * 1000",
           "format": "time_series",
@@ -344,7 +344,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Seconds taken to check DAG dependencies",
       "fieldConfig": {
@@ -390,8 +390,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -427,7 +426,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
           "expr": "af_agg_dagrun_dependency_check{dag_id=\"$dag_id\"} * 1000",
           "interval": "",
@@ -441,7 +440,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Seconds of delay between the scheduled DagRun start date and the actual DagRun start date",
       "fieldConfig": {
@@ -487,8 +486,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -524,7 +522,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
           "expr": "af_agg_dagrun_schedule_delay{dag_id=\"$dag_id\"} * 1000",
           "interval": "",
@@ -548,8 +546,7 @@
           "value": "deploy_model"
         },
         "datasource": {
-          "type": "prometheus",
-          "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+          "uid": "Prometheus"
         },
         "definition": "label_values(dag_id)",
         "hide": 0,
@@ -591,6 +588,6 @@
   "timezone": "",
   "title": "Airflow DAG dashboard",
   "uid": "qBWJRGPMz",
-  "version": 3,
+  "version": 1,
   "weekStart": ""
 }

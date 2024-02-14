@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 8,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -26,7 +26,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "gridPos": {
         "h": 1,
@@ -40,7 +40,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
           "refId": "A"
         }
@@ -51,7 +51,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "",
       "fieldConfig": {
@@ -61,7 +61,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -96,7 +97,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
           "expr": "af_agg_scheduler_heartbeat{airflow_id=\"$airflow_id\"}",
           "interval": "",
@@ -110,7 +111,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "fieldConfig": {
         "defaults": {
@@ -121,7 +122,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -155,13 +157,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "af_agg_dagbag_size{airflow_id=\"$airflow_id\"}",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -171,7 +171,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Seconds taken to scan and import all DAG files once",
       "fieldConfig": {
@@ -181,7 +181,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -220,13 +221,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "af_agg_dag_processing_total_parse_time{airflow_id=\"$airflow_id\"}",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -236,7 +235,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Number of errors from trying to parse DAG files",
       "fieldConfig": {
@@ -248,7 +247,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -282,13 +282,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "af_agg_dag_processing_import_errors{airflow_id=\"$airflow_id\"}",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -298,7 +296,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Zombie tasks killed",
       "fieldConfig": {
@@ -309,7 +307,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -343,13 +342,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "af_agg_zombies_killed{airflow_id=\"$airflow_id\"}",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -359,7 +356,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Overall task instances successes",
       "fieldConfig": {
@@ -370,7 +367,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -404,13 +402,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "af_agg_ti_successes{airflow_id=\"$airflow_id\"}",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -418,193 +414,142 @@
       "type": "stat"
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "ops",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 8,
         "x": 4,
         "y": 5
       },
+      "hiddenSeries": false,
       "id": 39,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
       },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
       "pluginVersion": "10.2.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "disableTextWrap": false,
-          "editorMode": "builder",
           "expr": "rate(af_agg_operator_successes{airflow_id=\"$airflow_id\"}[1m]) * 60",
-          "fullMetaSearch": false,
-          "includeNullMetadata": true,
           "interval": "",
           "legendFormat": "{{operator_name}}",
-          "range": true,
-          "refId": "A",
-          "useBackend": false
+          "refId": "A"
         }
       ],
+      "thresholds": [],
+      "timeRegions": [],
       "title": "Operator success rate per minuite",
-      "type": "timeseries"
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": "ops",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Total failures of given operator",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "ops",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 8,
         "x": 12,
         "y": 5
       },
+      "hiddenSeries": false,
       "id": 41,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
       },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
       "pluginVersion": "10.2.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
           "expr": "rate(af_agg_operator_failures{airflow_id=\"$airflow_id\"}[1m]) * 60",
           "interval": "",
@@ -612,13 +557,42 @@
           "refId": "A"
         }
       ],
+      "thresholds": [],
+      "timeRegions": [],
       "title": "Operator failure rate per minute",
-      "type": "timeseries"
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": "ops",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "fieldConfig": {
         "defaults": {
@@ -628,7 +602,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -662,13 +637,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "af_agg_ti_failures{airflow_id=\"$airflow_id\"}",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -679,7 +652,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "gridPos": {
         "h": 1,
@@ -693,7 +666,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
           "refId": "A"
         }
@@ -702,92 +675,54 @@
       "type": "row"
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 16,
         "x": 0,
         "y": 12
       },
+      "hiddenSeries": false,
       "id": 56,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
       },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
       "pluginVersion": "10.2.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "rate(af_agg_job_start{airflow_id=\"$airflow_id\"}[1m]) * 60",
           "instant": false,
           "interval": "",
@@ -795,13 +730,42 @@
           "refId": "A"
         }
       ],
+      "thresholds": [],
+      "timeRegions": [],
       "title": "Jobs started per minute",
-      "type": "timeseries"
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "fieldConfig": {
         "defaults": {
@@ -811,7 +775,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -845,9 +810,8 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "af_agg_executor_open_slots{airflow_id=\"$airflow_id\"}",
           "instant": false,
           "interval": "1",
@@ -862,7 +826,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "fieldConfig": {
         "defaults": {
@@ -872,7 +836,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -906,13 +871,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "af_agg_executor_queued_tasks{airflow_id=\"$airflow_id\"}",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -920,106 +883,96 @@
       "type": "stat"
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 16,
         "x": 0,
         "y": 18
       },
+      "hiddenSeries": false,
       "id": 21,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
       },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
       "pluginVersion": "10.2.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "rate(af_agg_job_end{airflow_id=\"$airflow_id\"}[1m]) * 60",
           "interval": "",
           "legendFormat": "{{job_name}}",
-          "range": true,
           "refId": "A"
         }
       ],
+      "thresholds": [],
+      "timeRegions": [],
       "title": "Jobs ended per minute",
-      "type": "timeseries"
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "fieldConfig": {
         "defaults": {
@@ -1029,7 +982,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -1063,13 +1017,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "af_agg_executor_running_tasks{airflow_id=\"$airflow_id\"}",
           "interval": "",
           "legendFormat": "",
-          "range": true,
           "refId": "A"
         }
       ],
@@ -1080,7 +1032,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "gridPos": {
         "h": 1,
@@ -1094,7 +1046,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
           "refId": "A"
         }
@@ -1103,157 +1055,118 @@
       "type": "row"
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Seconds taken for a DagRun to reach success state",
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
           "unit": "ms"
         },
         "overrides": []
       },
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 24,
         "x": 0,
         "y": 25
       },
+      "hiddenSeries": false,
       "id": 25,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
       },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
       "pluginVersion": "10.2.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "af_agg_dagrun_duration_success{airflow_id=\"$airflow_id\"} * 1000",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{dag_id}} p{{quantile}}",
-          "range": true,
           "refId": "A"
         }
       ],
+      "thresholds": [],
+      "timeRegions": [],
       "title": "Success DAG run duration",
-      "type": "timeseries"
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ms",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Seconds taken for a DagRun to reach failed state",
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
+          "custom": {},
           "mappings": [],
-          "min": 0,
+          "noValue": "0",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -1261,97 +1174,103 @@
         },
         "overrides": []
       },
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 33
       },
+      "hiddenSeries": false,
       "id": 49,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
       },
-      "pluginVersion": "10.2.3",
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "af_agg_dagrun_duration_failed{airflow_id=\"$airflow_id\"} * 1000",
           "interval": "",
           "legendFormat": "{{dag_id}} p{{quantile}}",
-          "range": true,
           "refId": "A"
         }
       ],
+      "thresholds": [],
+      "timeRegions": [],
       "title": "Failed DAG run duration",
-      "type": "timeseries"
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Sum of seconds taken to finish a tasks aggregated by DAG",
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
+          "custom": {},
           "mappings": [],
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -1359,33 +1278,47 @@
         },
         "overrides": []
       },
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 24,
         "x": 0,
         "y": 40
       },
+      "hiddenSeries": false,
       "id": 51,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
       },
-      "pluginVersion": "10.2.3",
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "sum by (dag_id, quantile) (af_agg_dag_task_duration{airflow_id=\"$airflow_id\"}) * 1000",
           "format": "time_series",
           "instant": false,
@@ -1394,54 +1327,54 @@
           "refId": "A"
         }
       ],
+      "thresholds": [],
+      "timeRegions": [],
       "title": "DAG run duration",
-      "type": "timeseries"
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "s",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Seconds taken to check DAG dependencies",
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
           "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
+            "filterable": false
           },
           "mappings": [],
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1458,140 +1391,178 @@
         },
         "overrides": []
       },
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 24,
         "x": 0,
         "y": 46
       },
+      "hiddenSeries": false,
       "id": 19,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
       },
-      "pluginVersion": "10.2.3",
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "af_agg_dagrun_dependency_check{airflow_id=\"$airflow_id\"} * 1000",
           "interval": "",
           "legendFormat": "{{dag_id}} p{{quantile}}",
-          "range": true,
           "refId": "A"
         }
       ],
+      "thresholds": [],
+      "timeRegions": [],
       "title": "DAG run dependency check time",
-      "type": "timeseries"
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "ms",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     },
     {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+        "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
       },
       "description": "Seconds of delay between the scheduled DagRun start date and the actual DagRun start date",
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
+          "custom": {},
           "unit": "ms"
         },
         "overrides": []
       },
+      "fill": 1,
+      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 24,
         "x": 0,
         "y": 53
       },
+      "hiddenSeries": false,
       "id": 27,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
       },
-      "pluginVersion": "10.2.3",
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+            "uid": "df485426-8807-4be6-bc3a-ccc4aec99a3b"
           },
-          "editorMode": "builder",
           "expr": "af_agg_dagrun_schedule_delay{airflow_id=\"$airflow_id\"} * 1000",
           "interval": "",
           "legendFormat": "{{dag_id}} p{{quantile}}",
-          "range": true,
           "refId": "A"
         }
       ],
+      "thresholds": [],
+      "timeRegions": [],
       "title": "DAG run schedule delay",
-      "type": "timeseries"
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
     }
   ],
   "refresh": "5s",
@@ -1606,8 +1577,7 @@
           "value": "airflow"
         },
         "datasource": {
-          "type": "prometheus",
-          "uid": "fb0435b9-c690-4338-91b4-44cd7f2afd19"
+          "uid": "Prometheus"
         },
         "definition": "label_values(airflow_id)",
         "hide": 0,
@@ -1649,6 +1619,6 @@
   "timezone": "",
   "title": "Airflow cluster dashboard",
   "uid": "lFXqBGxWk",
-  "version": 5,
+  "version": 1,
   "weekStart": ""
 }
